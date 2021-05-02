@@ -1,0 +1,26 @@
+.wrap{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: larger;
+}
+.content__greeting{
+	width: 50%;
+	height: 30vh;
+	text-align: center;
+	padding-top: 5%;
+}
+.content__rating{
+	width: 30%;
+	text-align: center;
+}
+.votes{
+	margin-top: 50px;
+	
+}
+.votes__title{
+margin-bottom: 5%;
+}
+.votes__button{
+	margin: 10%;
+}

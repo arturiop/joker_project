@@ -1,0 +1,25 @@
+{
+	"parser": "@typescript-eslint/parser", // Парсер который мы ставили ранее
+	"parserOptions": {
+		"ecmaVersion": 2021, // Версия экмаскрипта которую вы хотите уметь парсить
+		"sourceType": "module", // Можно ли использовать imports
+		"ecmaFeatures": {
+			"jsx": true // Нужно ли парсить jsx,
+		},
+		"project": "./tsconfig.json"
+	},
+	"extends": [
+		"airbnb-typescript",
+		"plugin:react/recommended", // Применяем правила с плагинов
+		"plugin:@typescript-eslint/recommended"
+	],
+	"env": {
+		"browser": true // окружение в котором работает ваше приложение
+	},
+	"rules": {
+		"linebreak-style": 0,
+		"react/prop-types": 0,// дополнительные правила, которые вы хотите сами настроить
+		"import/no-cycle": [2, { "maxDepth": 1 }],
+		"import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+	}
+}
