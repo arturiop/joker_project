@@ -7,7 +7,7 @@ import { requestUserComments, requestUserPosts } from '../../store/actions/profi
 import { UserData } from '../../types/types';
 import Comments from '../../ui/Comment';
 import { getUserComments, getUserPosts } from '../../store/actions/profile/profile-selector';
-import ProfileDescription from '../../components/Profile';
+import Profile from '../../components/Profile';
 import PostsList from '../../components/PostLIst';
 
 const ProfilePage: FC<PropsType> = memo(({ profile, profileId }) => {
@@ -28,7 +28,7 @@ const ProfilePage: FC<PropsType> = memo(({ profile, profileId }) => {
 
   return (
     <div>
-      <ProfileDescription profile={profile} />
+      <Profile profile={profile} />
       <PostsList state={userPosts} />
       <Button onClick={changePage}>Show more post</Button>
       <Comments commentsData={userComments} visibleLink />
