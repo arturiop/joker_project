@@ -1,13 +1,12 @@
 import { Menu } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import React, { FC, memo } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from './index.module.css';
 
 const HeaderComponent: FC = memo(() => {
-  const history = useHistory();
-  let selectedKeyPath = history.location.pathname.substr(1);
-
+  const location = useLocation();
+  let selectedKeyPath = location.pathname.substr(1);
   if (!selectedKeyPath) {
     selectedKeyPath = 'home';
   }
