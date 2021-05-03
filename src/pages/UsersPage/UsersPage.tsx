@@ -10,22 +10,6 @@ const UsersPage: FC<PropsType> = memo(({ state, currentPage, onPageChanged }) =>
   const totalItems = useSelector(getTotalItems);
   const isFetching = useSelector(getIsFetching);
 
-  // useEffect(() => {
-  //   const parsed = Qs.parse(history.location.search.substr(1));
-  //   const actualPage = (parsed.page) ? Number(parsed.page) : currentPage;
-
-  //   dispatch(requestUsers(actualPage));
-  // }, []);
-
-  // useEffect(() => {
-  //   const query: QueryParamsType = {};
-  //   if (currentPage !== 1) query.page = String(currentPage);
-  //   history.push({
-  //     pathname: '/users',
-  //     search: Qs.stringify(query),
-  //   });
-  // }, [currentPage, history]);
-
   const usersData = state.map((item) => <User item={item} key={item.id} />);
 
   return (

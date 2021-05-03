@@ -27,7 +27,7 @@ const HomePage: FC = memo(() => {
         <div className={styles.content__rating}>
           <div>{`Website rating ${rating}`}</div>
 
-          <ModalCustom isOpen={visible} setIsOpen={setVisible} />
+          <ModalCustom visible={visible} setVisible={setVisible} />
 
           {allowToVote && (
           <div className={styles.votes}>

@@ -12,11 +12,13 @@ const Comments: FC<PropsType> = memo(({ commentsData, visibleLink }) => {
         <div key={item.id}>
           <div>Comment</div>
           <div>{`${item.name}: ${item.body}`}</div>
+
           {visibleLink ? (
             <NavLink to={`/publication/${item.post_id}`}>
               <p>go to publication</p>
             </NavLink>
           ) : null}
+
         </div>
       ))}
     </div>

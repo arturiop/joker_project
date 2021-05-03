@@ -7,19 +7,19 @@ import styles from './index.module.css';
 const Post: FC<PropsType> = memo(({ item }) => {
   const created = item.created_at.substring(0, 10);
   const updated = item.updated_at.substring(0, 16);
-  const [isShow, setIsShow] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  const switchShow = () => setIsShow(false);
+  const switchVisible = () => setVisible(!visible);
 
   return (
     <div className={styles.item__wrap}>
       Post
       <div className={styles.item__title}>
         {`title: ${item.title}`}
-        <Button type="text" onClick={() => switchShow()}>...</Button>
+        <Button type="text" onClick={switchVisible}>...</Button>
       </div>
-      {isShow && <div>{`descriptions: ${item.body}`}</div>}
-      {isShow ? (
+      {visible && <div>{`descriptions: ${item.body}`}</div>}
+      {visible ? (
         <div>
           {`updated: ${updated}`}
         </div>
