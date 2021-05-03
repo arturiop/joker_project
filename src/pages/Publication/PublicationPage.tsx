@@ -22,10 +22,11 @@ const PublicationPage: FC<PropsType> = memo(({ publication, postId }) => {
   }, []);
 
   const onSubmit: SubmitHandler<FormValues> = (values) => {
+    console.log(values);
     const data: SendCommentData = {
-      user_id: currentUser.id,
-      name: currentUser.name,
-      email: currentUser.email,
+      user_id: 83,
+      name: 'Artur',
+      email: 'artur_artur@gmail.com',
       body: values.body,
     };
     dispatch(sendComment(publication.id, data));
