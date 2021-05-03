@@ -1,11 +1,11 @@
 import React, { FC, memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { setProfile, actionProfile } from '../../store/actions/profile/profile';
-import { getProfile } from '../../store/actions/profile/profile-selector';
-import { UserData } from '../../types/types';
-import Loading from '../../ui/Loading';
-import Profile from './Profile';
+import { setProfile, actionProfile } from '../store/actions/profile/profile';
+import { getProfile } from '../store/actions/profile/profile-selector';
+import { UserData } from '../types/types';
+import Loading from '../ui/Loading';
+import ProfilePage from '../pages/Profile/ProfilePage';
 
 const ProfileContainer: FC = memo(() => {
   const profile = useSelector(getProfile) as UserData;
@@ -22,7 +22,7 @@ const ProfileContainer: FC = memo(() => {
 
   return (
     <div>
-      {profile ? <Profile profile={profile} profileId={profileId} /> : <Loading />}
+      {profile ? <ProfilePage profile={profile} profileId={profileId} /> : <Loading />}
     </div>
   );
 });

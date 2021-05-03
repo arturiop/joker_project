@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserData } from '../../types/types';
-import styles from './UsersPage.module.css';
+import styles from './index.module.css';
 
 const User: FC<UserType> = memo(({ item }) => (
   <div className={styles.wrap__user}>

@@ -18,7 +18,7 @@ const commentsApi = {
     );
   },
 
-  getCommentsForUser(email: string): Promise<GetResponse<CommentData>> {
+  getUsersComments(email: string): Promise<GetResponse<CommentData>> {
     return (
       instance.get(`comments?email=${email}`)
         .then((response) => response.data));

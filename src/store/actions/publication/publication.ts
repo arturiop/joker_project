@@ -1,4 +1,4 @@
-import postApi from '../../../api/postApi';
+import publicanionApi from '../../../api/publicationApi';
 import errorPopups from '../../../ui/ErrorMessage/in';
 import { ActionsTypes, CommonThunkActionType, PostData } from '../../../types/types';
 
@@ -9,7 +9,7 @@ export const actionPublication = {
 
 export const setPublication = (postId: number): ThunkType => async (dispatch) => {
   try {
-    const response = await postApi.getPublication(postId);
+    const response = await publicanionApi.getPublication(postId);
 
     if (response.code === 200) {
       dispatch(actionPublication.setNewPublication(response.data));

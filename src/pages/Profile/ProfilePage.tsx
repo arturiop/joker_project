@@ -6,11 +6,11 @@ import { Button } from 'antd';
 import { requestUserComments, requestUserPosts } from '../../store/actions/profile/profile';
 import { UserData } from '../../types/types';
 import Comments from '../../ui/Comment';
-import PostsListN from '../PostsList/PostsList-not-container';
-import ProfileWrap from './ProfileWrap';
 import { getUserComments, getUserPosts } from '../../store/actions/profile/profile-selector';
+import ProfileDescription from '../../components/Profile';
+import PostsList from '../../components/PostLIst';
 
-const Profile: FC<PropsType> = memo(({ profile, profileId }) => {
+const ProfilePage: FC<PropsType> = memo(({ profile, profileId }) => {
   const userPosts = useSelector(getUserPosts);
   const userComments = useSelector(getUserComments);
   const [page, setPage] = useState(1);
@@ -28,8 +28,8 @@ const Profile: FC<PropsType> = memo(({ profile, profileId }) => {
 
   return (
     <div>
-      <ProfileWrap profile={profile} />
-      <PostsListN state={userPosts} />
+      <ProfileDescription profile={profile} />
+      <PostsList state={userPosts} />
       <Button onClick={changePage}>Show more post</Button>
       <Comments commentsData={userComments} visibleLink />
       <Button onClick={changePage}>Show more comments</Button>
@@ -37,7 +37,7 @@ const Profile: FC<PropsType> = memo(({ profile, profileId }) => {
   );
 });
 
-export default Profile;
-Profile.displayName = 'Profile';
+export default ProfilePage;
+ProfilePage.displayName = 'ProfilePage';
 
 type PropsType = { profile: UserData, profileId: string };

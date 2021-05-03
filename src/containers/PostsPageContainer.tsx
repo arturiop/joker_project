@@ -1,21 +1,16 @@
-import React, { FC, memo, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Qs from 'qs';
 import { useHistory } from 'react-router';
-import { requestPosts } from '../../store/actions/posts/posts';
+import { requestPosts } from '../store/actions/posts/posts';
+import { getCurrentPage, getPosts } from '../store/actions/posts/posts-selector';
+import Loading from '../ui/Loading';
+import PostsList from '../pages/PostsPage/PostsPage';
 
-import {
-  getCurrentPage, getIsFetching, getPosts, getTotalItems,
-} from '../../store/actions/posts/posts-selector';
-import PaginationCustom from '../../ui/Pagination';
-import Loading from '../../ui/Loading';
-import PostsListN from './PostsList-not-container';
-
-const PostsList: FC = memo(() => {
+const PostsPageContainer: FC = () => {
   const posts = useSelector(getPosts);
-  const totalItems = useSelector(getTotalItems);
-  const isFetching = useSelector(getIsFetching);
   const currentPage = useSelector(getCurrentPage);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,30 +28,26 @@ const PostsList: FC = memo(() => {
   useEffect(() => {
     const query: QueryParamsType = {};
     if (currentPage !== 1) query.page = String(currentPage);
-
     history.push({
       pathname: '/posts',
       search: Qs.stringify(query),
     });
   }, [currentPage, history]);
 
-  if (posts.length === 0) {
-    return <Loading />;
-  }
   return (
-    <div>
-      <PostsListN state={posts} />
-      <PaginationCustom
-        current={currentPage}
-        disabled={isFetching}
-        onChange={onPageChanged}
-        total={totalItems}
-      />
-    </div>
-
+    <>
+      {posts ? (
+        <PostsList
+          state={posts}
+          onPageChanged={onPageChanged}
+          currentPage={currentPage}
+        />
+      )
+        : <Loading /> }
+    </>
   );
-});
+};
 
-export default PostsList;
-PostsList.displayName = 'PostsList';
 type QueryParamsType = { page?: string };
+export default PostsPageContainer;
+PostsPageContainer.displayName = 'PostsPageContainer';

@@ -39,7 +39,7 @@ export const requestUserPosts = (page:number, userId: number): ThunkType => asyn
 
 export const requestUserComments = (email: string): ThunkType => async (dispatch) => {
   try {
-    const response = await commentsApi.getCommentsForUser(email);
+    const response = await commentsApi.getUsersComments(email);
 
     if (response.code === 200) {
       dispatch(actionProfile.setUserComments(response.data));

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Modal } from 'antd';
-import photo from '../../../assets/images/hateAnswer.jpg';
+import photo from '../../assets/images/hateAnswer.jpg';
 
 const ModalCustom: FC<MyModalType> = ({ isOpen, setIsOpen }) => (
   <Modal

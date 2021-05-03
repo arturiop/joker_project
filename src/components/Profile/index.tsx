@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { UserData } from '../../types/types';
 
-const ProfileWrap: FC<PropsType> = memo(({ profile }) => (
+const ProfileDescription: FC<PropsType> = memo(({ profile }) => (
   <div>
     <div>Profile:</div>
     <div>{profile.name}</div>
@@ -11,8 +11,8 @@ const ProfileWrap: FC<PropsType> = memo(({ profile }) => (
   </div>
 ));
 
-export default ProfileWrap;
+export default ProfileDescription;
 
-ProfileWrap.displayName = 'ProfileWrap';
+ProfileDescription.displayName = 'ProfileDescription';
 
 type PropsType = { profile: UserData };

@@ -3,9 +3,9 @@ import 'antd/dist/antd.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Layout } from 'antd';
-import FooterComponent from '../containers/page-contaiters/footer';
-import HeaderComponent from '../containers/page-contaiters/header';
-import ContentComponent from '../containers/page-contaiters/сontent';
+import FooterComponent from '../components/Footer';
+import HeaderComponent from '../components/Header';
+import ContentComponent from '../components/Сontent';
 import store from '../store';
 
 const App: FC = () => (

@@ -7,13 +7,14 @@ import ModalCustom from '../../ui/ModalCustom';
 import styles from './HomePage.module.css';
 
 const HomePage: FC = memo(() => {
-  const [openModal, setOpenModal] = useState(false);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const rating = useSelector((state: AppState) => state.rating.rating);
   const allowToVote = useSelector((state: AppState) => state.rating.allowToVote);
-  const handleClick = (numb: number) => {
-    dispatch(actionRating.raisRating(numb));
+  const handleClick = () => {
+    dispatch(actionRating.raisRating(1));
   };
+  const openModal = () => setVisible(true);
 
   return (
     <div>
@@ -26,7 +27,7 @@ const HomePage: FC = memo(() => {
         <div className={styles.content__rating}>
           <div>{`Website rating ${rating}`}</div>
 
-          <ModalCustom isOpen={openModal} setIsOpen={setOpenModal} />
+          <ModalCustom isOpen={visible} setIsOpen={setVisible} />
 
           {allowToVote && (
           <div className={styles.votes}>
@@ -35,10 +36,10 @@ const HomePage: FC = memo(() => {
             </div>
 
             <span className={styles.votes__button}>
-              <Button type="primary" onClick={() => handleClick(1)}>Greate</Button>
+              <Button type="primary" onClick={handleClick}>Greate</Button>
             </span>
             <span className={styles.votes__button}>
-              <Button type="text" onClick={() => setOpenModal(true)}>Hate</Button>
+              <Button type="text" onClick={openModal}>Hate</Button>
             </span>
           </div>
           )}

@@ -68,6 +68,8 @@ export type SendCommentData = {
   body: string
 };
 
+export type FormValues = { body: string };
+
 export type AppState = ReturnType<typeof rootReducer>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

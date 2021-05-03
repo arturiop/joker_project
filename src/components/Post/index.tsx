@@ -2,20 +2,14 @@ import { Button } from 'antd';
 import React, { FC, memo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PostData } from '../../types/types';
-import styles from './PostsList.module.css';
+import styles from './index.module.css';
 
 const Post: FC<PropsType> = memo(({ item }) => {
   const created = item.created_at.substring(0, 10);
   const updated = item.updated_at.substring(0, 16);
   const [isShow, setIsShow] = useState(false);
 
-  const switchShow = () => {
-    if (isShow) {
-      setIsShow(false);
-    } else {
-      setIsShow(true);
-    }
-  };
+  const switchShow = () => setIsShow(false);
 
   return (
     <div className={styles.item__wrap}>
@@ -44,6 +38,6 @@ const Post: FC<PropsType> = memo(({ item }) => {
 });
 
 export default Post;
-Post.displayName = 'Post';
 
+Post.displayName = 'Post';
 type PropsType = { item: PostData };

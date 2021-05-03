@@ -1,4 +1,4 @@
-import { GetResponse, PostData, Response } from '../types/types';
+import { GetResponse, PostData } from '../types/types';
 import instance from './api';
 
 const postApi = {
@@ -10,12 +10,6 @@ const postApi = {
     );
   },
 
-  getPublication(postId: number): Promise<Response<PostData>> {
-    return (
-      instance.get(`posts/${postId}`)
-        .then((response) => response.data)
-    );
-  },
 };
 
 export default postApi;

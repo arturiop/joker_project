@@ -1,16 +1,16 @@
 import React, { memo } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Content } from 'antd/lib/layout/layout';
-import ErrorMessage from '../../../ui/ErrorMessage';
-import Loading from '../../../ui/Loading';
-import NotFound from '../../../ui/NotFound';
+import ErrorMessage from '../../ui/ErrorMessage';
+import Loading from '../../ui/Loading';
+import NotFound from '../../ui/NotFound';
 import styles from './index.module.css';
 
-const HomePage = React.lazy(() => import('../../../components/HomePage/HomePage'));
-const PostsList = React.lazy(() => import('../../../components/PostsList/PostsList'));
-const UsersPage = React.lazy(() => import('../../../components/UsersPage/UsersPage'));
-const PublicationContainer = React.lazy(() => import('../../../components/Publication/Publication-container'));
-const ProfileContainer = React.lazy(() => import('../../../components/Profile/Profile-container'));
+const HomePage = React.lazy(() => import('../../pages/HomePage/HomePage'));
+const UsersPageContainer = React.lazy(() => import('../../containers/UsersPageContainer'));
+const PostsPageContainer = React.lazy(() => import('../../containers/PostsPageContainer'));
+const PublicationContainer = React.lazy(() => import('../../containers/PublicationContainer'));
+const ProfileContainer = React.lazy(() => import('../../containers/ProfileContainer'));
 
 const ContentComponent: React.FC = memo(() => (
   <Content className={styles.container}>
@@ -36,7 +36,7 @@ const ContentComponent: React.FC = memo(() => (
         path="/posts"
         render={() => (
           <React.Suspense fallback={<Loading />}>
-            <PostsList />
+            <PostsPageContainer />
           </React.Suspense>
         )}
       />
@@ -45,10 +45,11 @@ const ContentComponent: React.FC = memo(() => (
         path="/users"
         render={() => (
           <React.Suspense fallback={<Loading />}>
-            <UsersPage />
+            <UsersPageContainer />
           </React.Suspense>
         )}
       />
+
       <Route
         path="/publication/:postId(\d+)?"
         render={() => (
