@@ -1,6 +1,5 @@
 import { Button } from 'antd';
 import React, { FC, memo } from 'react';
-import { Redirect } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import styles from './index.module.css';
 

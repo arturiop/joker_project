@@ -1,7 +1,6 @@
 import React, { FC, memo, useEffect } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuth } from '../../store/actions/auth/auth-selector';
 import { actionComments, requestComments, sendComment } from '../../store/actions/comments/comments';
 import { getCommentsForPost } from '../../store/actions/comments/comments-selector';
 import { FormValues, PostData, SendCommentData } from '../../types/types';
@@ -11,7 +10,6 @@ import DescriptionPublication from '../../components/Publicattion';
 
 const PublicationPage: FC<PropsType> = memo(({ publication, postId }) => {
   const commentsData = useSelector(getCommentsForPost);
-  const currentUser = useSelector(getUserAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {

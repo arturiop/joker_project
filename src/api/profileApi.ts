@@ -5,7 +5,6 @@ const profileApi = {
   getProfile(userId: number): Promise<Response<UserData>> {
     return (
       instance.get(`users/${userId}`)
-        .then((response) => response.data)
     );
   },
 };

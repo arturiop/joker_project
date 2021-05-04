@@ -6,7 +6,6 @@ const publicationApi = {
   getPublication(postId: number): Promise<Response<PostData>> {
     return (
       instance.get(`posts/${postId}`)
-        .then((response) => response.data)
     );
   },
 

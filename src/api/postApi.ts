@@ -5,8 +5,12 @@ const postApi = {
 
   getPosts(currentPage: number, userId?: number):Promise<GetResponse<PostData>> {
     return (
-      instance.get(`posts?page=${[currentPage]}${userId === undefined ? '' : `&user_id=${userId}`}`)
-        .then((response) => response.data)
+      instance.get('posts', {
+        params: {
+          page: currentPage,
+          user_id: userId,
+        },
+      })
     );
   },
 

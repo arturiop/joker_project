@@ -1,10 +1,15 @@
 import axios from 'axios';
+import { root, token } from './config';
 
 const instance = axios.create({
-  baseURL: 'https://gorest.co.in/public-api/',
+  baseURL: root,
   headers: {
-    Authorization: 'Bearer 47ba216e435181934e934f3f82bedeb7d5c05c769d8ba29c67650e76bb415630',
+    Authorization: `Bearer ${token}`,
   },
 });
+
+instance.interceptors.request.use((config) => config, (error) => error);
+
+instance.interceptors.response.use((config) => config.data, (error) => error);
 
 export default instance;
