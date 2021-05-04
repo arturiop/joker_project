@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Qs from 'qs';
 import { useHistory } from 'react-router';
 

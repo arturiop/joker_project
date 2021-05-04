@@ -22,14 +22,14 @@ const PostsPageContainer: FC = () => {
 
   return (
     <>
-      {posts ? (
-        <PostsList
-          state={posts}
-          onPageChanged={onPageChanged}
-          currentPage={currentPage}
-        />
-      )
-        : <Loading /> }
+      {!posts.length ? <Loading />
+        : (
+          <PostsList
+            state={posts}
+            onPageChanged={onPageChanged}
+            currentPage={currentPage}
+          />
+        ) }
     </>
   );
 };

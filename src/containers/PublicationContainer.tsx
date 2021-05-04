@@ -20,4 +20,3 @@ const PublicationContainer: FC = memo(() => {
 export default PublicationContainer;
 
 PublicationContainer.displayName = 'PublicationContainer';
-type ParamsType = { postId: string };

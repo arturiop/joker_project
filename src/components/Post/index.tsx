@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import React, { FC, memo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { PathKeys as CNST } from '../../constants/constants-keys';
 import { PostData } from '../../types/types';
 import styles from './index.module.css';
 
@@ -29,7 +30,7 @@ const Post: FC<PropsType> = memo(({ item }) => {
             {`created: ${created}`}
           </div>
         ) }
-      <NavLink to={`/publication/${item.id}`}>
+      <NavLink to={`${CNST.PUBLICATION}/${item.id}`}>
         <p>go to publication</p>
       </NavLink>
       <div>-----------------------------</div>

@@ -24,14 +24,14 @@ const UsersPageContainer: FC = memo(() => {
 
   return (
     <>
-      {users ? (
-        <UsersPage
-          state={users}
-          onPageChanged={onPageChanged}
-          currentPage={currentPage}
-        />
-      )
-        : <Loading /> }
+      {!users.length ? <Loading />
+        : (
+          <UsersPage
+            state={users}
+            onPageChanged={onPageChanged}
+            currentPage={currentPage}
+          />
+        ) }
     </>
   );
 });
