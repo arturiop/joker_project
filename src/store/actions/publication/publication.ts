@@ -4,7 +4,7 @@ import { ActionsTypes, CommonThunkActionType, PostData } from '../../../types/ty
 
 export const actionPublication = {
   setNewPublication: (publication: PostData) => ({ type: 'PUBLICATION/SET_PUBLICATION', publication } as const),
-  deletePublication: () => ({ type: 'PUBLICATION/DELETE_PUBLICATION' } as const),
+  clearPublication: () => ({ type: 'PUBLICATION/DELETE_PUBLICATION' } as const),
 };
 
 export const setPublication = (postId: number): ThunkType => async (dispatch) => {

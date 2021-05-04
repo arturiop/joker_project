@@ -27,8 +27,8 @@ const ContentComponent: React.FC = memo(() => (
       <Route path="/posts" render={() => <PostsPageSuspended />} />
       <Route path="/users" render={() => <UsersPageSuspended />} />
 
-      <Route path="/publication/:postId(\d+)?" render={() => <PublicationSuspended />} />
-      <Route path="/profile/:profileId(\d+)?" render={() => <ProfileSuspended />} />
+      <Route path="/publication/:id(\d+)?" render={() => <PublicationSuspended />} />
+      <Route path="/profile/:id(\d+)?" render={() => <ProfileSuspended />} />
 
       <Route path="*" render={() => <NotFound />} />
 
